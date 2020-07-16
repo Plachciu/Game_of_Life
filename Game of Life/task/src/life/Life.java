@@ -7,15 +7,16 @@ public class Life {
 
     Scanner scanner = new Scanner(System.in);
     Random random;
-    int Number = 0;
+    int N = 0;
     int S = 0;
+    int generations = 0;
 
-    public int getNumber() {
-        return Number;
+    public int getN() {
+        return N;
     }
 
-    public void setNumber(int number) {
-        Number = number;
+    public void setN(int n) {
+        N = n;
     }
 
     public int getS() {
@@ -29,13 +30,14 @@ public class Life {
     boolean[][] currentGeneration;
 
     public void getNumbers (){
-        this.Number = scanner.nextInt();
+        this.N = scanner.nextInt();
         this.S = scanner.nextInt();
+        this.generations = scanner.nextInt();
     }
 
     public void mapCreator() {
-        if (this.Number > 0) {
-            this.currentGeneration = new boolean[this.Number][this.Number];
+        if (this.N > 0) {
+            this.currentGeneration = new boolean[this.N][this.N];
         } else {
             System.out.println("Wrong size of matrix!");
         }
@@ -43,8 +45,8 @@ public class Life {
 
     public void mapFiller() {
         random = new Random(S);
-        for (int i = 0; i < Number; i++){
-            for (int j = 0; j < Number; j++){
+        for (int i = 0; i < N; i++){
+            for (int j = 0; j < N; j++){
                 this.currentGeneration[i][j] = random.nextBoolean();
             }
         }
@@ -53,15 +55,15 @@ public class Life {
 
     public void mapPrinter() {
 
-        for (int i = 0; i < Number; i++){
-            for (int j = 0; j < Number; j++){
+        for (int i = 0; i < N; i++){
+            for (int j = 0; j < N; j++){
 
                 if (this.currentGeneration[i][j]){
                     System.out.print('O');
                 } else {
                     System.out.print(' ');
                 }
-                if (j == Number - 1){
+                if (j == N - 1){
                     System.out.println();
                 }
             }
